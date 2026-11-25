@@ -1,0 +1,145 @@
+/* Programs, stats and testimonial */
+
+.programs {
+  overflow: hidden;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-position: center top;
+  background-size: 64px 64px;
+  -webkit-mask-image: linear-gradient(transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(transparent, #000 12%, #000 88%, transparent);
+}
+
+.programs__ring {
+  position: absolute;
+  top: 8%;
+  right: -140px;
+  width: 520px;
+  height: 520px;
+  pointer-events: none;
+  fill: none;
+  stroke: color-mix(in srgb, var(--signal) 35%, transparent);
+  stroke-width: 1;
+  stroke-dasharray: 2 8;
+}
+
+/* cards */
+.cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; perspective: 1000px; }
+.cards__item { display: flex; }
+
+.card {
+  --rx: 0deg;
+  --ry: 0deg;
+  --lift: 0px;
+  --mx: 50%;
+  --my: 0%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: .9rem;
+  width: 100%;
+  padding: 1.75rem 1.5rem;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  transform: translateY(var(--lift)) rotateX(var(--rx)) rotateY(var(--ry));
+  transform-style: preserve-3d;
+  transition: transform .35s var(--ease), border-color .35s, box-shadow .35s;
+}
+
+/* glow that follows the cursor, position set from js/programs.js */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(380px circle at var(--mx) var(--my), color-mix(in srgb, var(--signal) 18%, transparent), transparent 60%);
+  transition: opacity .35s;
+}
+
+.card:hover {
+  --lift: -8px;
+  border-color: color-mix(in srgb, var(--signal) 55%, transparent);
+  box-shadow: 0 24px 50px -28px color-mix(in srgb, var(--signal) 70%, transparent);
+}
+.card:hover::before { opacity: 1; }
+
+.card__icon {
+  width: 46px;
+  height: 46px;
+  padding: 10px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--signal) 14%, transparent);
+  fill: none;
+  stroke: var(--accent-text);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.card__title { font-size: 1.35rem; }
+.card__text { flex: 1; font-size: .98rem; color: var(--muted); }
+.card__meta { display: flex; flex-wrap: wrap; gap: .45rem; }
+
+.tag {
+  padding: .35rem .7rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-2);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+
+/* stats */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: clamp(3.5rem, 7vw, 6rem);
+  border-block: 1px solid var(--line);
+}
+.stat { display: flex; flex-direction: column; gap: .35rem; padding: 2rem 1.5rem; }
+.stat + .stat { border-left: 1px solid var(--line); }
+
+.stat__num {
+  font: 600 clamp(2.4rem, 4.6vw, 3.8rem)/1 var(--font-display);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+.stat__label { font-size: .95rem; color: var(--muted); }
+
+/* testimonial */
+.testimonial {
+  position: relative;
+  max-width: 880px;
+  margin: clamp(3.5rem, 7vw, 6rem) auto 0;
+  text-align: center;
+}
+.testimonial__mark { width: 72px; height: 54px; margin: 0 auto 1.6rem; fill: var(--signal); }
+.testimonial__quote { margin: 0; }
+.testimonial__quote p { font: 500 clamp(1.45rem, 2.8vw, 2.2rem)/1.35 var(--font-display); }
+.testimonial__by { margin-top: 1.5rem; font-weight: 600; letter-spacing: .03em; color: var(--muted); }
+.testimonial__by::before { content: "- "; color: var(--signal); }
+
+@media (max-width: 1100px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 1023px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .stat:nth-child(3) { border-left: 0; }
+  .stat:nth-child(n + 3) { border-top: 1px solid var(--line); }
+}
+
+@media (max-width: 767px) {
+  .cards { grid-template-columns: 1fr; }
+  .stat { padding: 1.5rem 1rem; }
+  .programs__ring { right: -160px; width: 320px; height: 320px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover { --lift: 0px; }
+}

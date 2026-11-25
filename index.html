@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>DATACOUCH | AI &amp; Technology Training for Enterprise Teams</title>
+  <meta name="description" content="Hands-on, instructor-led training in Generative AI, Data, Cloud and DevOps, built for enterprise teams and delivered by industry practitioners." />
+  <meta name="theme-color" content="#0C1222" />
+  <meta name="color-scheme" content="dark light" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="DATACOUCH | Upskill Your Teams for the AI Era" />
+  <meta property="og:description" content="Instructor-led Generative AI, Data, ML and Cloud training for enterprise teams." />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%230C1222'/%3E%3Cpath d='M7 27V17l6.5-6 6.5-2 6.5 2 6.5 6v10M7 21h26M7 27h26' fill='none' stroke='%23F4EFE6' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='20' cy='9' r='3' fill='%23FF6B3D'/%3E%3C/svg%3E" />
+
+  <!-- set the saved theme before first paint -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      try {
+        var saved = localStorage.getItem('dc-theme');
+        if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+      } catch (e) {}
+      root.classList.add('js');
+      // if the CDN scripts never arrive, don't leave the hero hidden
+      setTimeout(function () {
+        if (!window.dcReady) root.classList.remove('js');
+      }, 4000);
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/programs.css" />
+  <link rel="stylesheet" href="css/how-it-works.css" />
+  <link rel="stylesheet" href="css/contact.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="container nav">
+      <!-- logo: a couch drawn as connected nodes -->
+      <a href="#top" class="logo" aria-label="Datacouch home">
+        <svg class="logo__mark" viewBox="0 0 40 40" width="40" height="40" aria-hidden="true" focusable="false">
+          <path class="logo__line" pathLength="1" d="M7 27V17l6.5-6 6.5-2 6.5 2 6.5 6v10" />
+          <path class="logo__line" pathLength="1" d="M7 21h26M7 27h26M10 27v4M30 27v4" />
+          <g class="logo__nodes">
+            <circle cx="7" cy="17" r="2" />
+            <circle cx="13.5" cy="11" r="2" />
+            <circle cx="26.5" cy="11" r="2" />
+            <circle cx="33" cy="17" r="2" />
+            <circle cx="7" cy="27" r="2" />
+            <circle cx="33" cy="27" r="2" />
+            <circle class="logo__core" cx="20" cy="9" r="3" />
+          </g>
+        </svg>
+        <span class="logo__word">DATA<span>COUCH</span></span>
+      </a>
+
+      <nav class="nav__menu" id="nav-menu" aria-label="Primary">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#programs">Programs</a></li>
+          <li><a class="nav__link" href="#how-it-works">How it Works</a></li>
+          <li><a class="nav__link" href="#contact">Contact</a></li>
+          <li><a class="btn btn--primary btn--sm" href="#contact" data-focus-form>Get a Quote</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav__actions">
+        <button class="icon-btn theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/></svg>
+        </button>
+        <button class="icon-btn nav__toggle" type="button" aria-controls="nav-menu" aria-expanded="false" aria-label="Open menu">
+          <span class="nav__toggle-bars" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__visual" aria-hidden="true">
+        <div class="hero__canvas" id="hero-canvas"></div>
+
+        <!-- shown instead of the canvas below 768px -->
+        <svg class="hero__fallback" viewBox="0 0 320 220" role="presentation" focusable="false">
+          <g class="mn-lines">
+            <line x1="40" y1="60" x2="95" y2="35"/><line x1="95" y1="35" x2="150" y2="70"/>
+            <line x1="150" y1="70" x2="210" y2="40"/><line x1="210" y1="40" x2="270" y2="75"/>
+            <line x1="40" y1="60" x2="60" y2="130"/><line x1="95" y1="35" x2="125" y2="120"/>
+            <line x1="150" y1="70" x2="125" y2="120"/><line x1="150" y1="70" x2="185" y2="135"/>
+            <line x1="210" y1="40" x2="185" y2="135"/><line x1="270" y1="75" x2="250" y2="140"/>
+            <line x1="60" y1="130" x2="125" y2="120"/><line x1="125" y1="120" x2="185" y2="135"/>
+            <line x1="185" y1="135" x2="250" y2="140"/><line x1="60" y1="130" x2="95" y2="185"/>
+            <line x1="125" y1="120" x2="95" y2="185"/><line x1="95" y1="185" x2="160" y2="190"/>
+            <line x1="185" y1="135" x2="160" y2="190"/><line x1="160" y1="190" x2="225" y2="195"/>
+            <line x1="250" y1="140" x2="225" y2="195"/><line x1="250" y1="140" x2="290" y2="170"/>
+            <line x1="225" y1="195" x2="290" y2="170"/><line x1="60" y1="130" x2="30" y2="190"/>
+            <line x1="30" y1="190" x2="95" y2="185"/><line x1="270" y1="75" x2="290" y2="170"/>
+          </g>
+          <g class="mn-nodes">
+            <circle cx="40" cy="60" r="4" style="--d:0s"/>
+            <circle cx="95" cy="35" r="4" style="--d:.4s"/>
+            <circle class="is-accent" cx="150" cy="70" r="6" style="--d:.8s"/>
+            <circle cx="210" cy="40" r="4" style="--d:1.2s"/>
+            <circle cx="270" cy="75" r="4" style="--d:1.6s"/>
+            <circle cx="60" cy="130" r="4" style="--d:.6s"/>
+            <circle cx="125" cy="120" r="5" style="--d:1s"/>
+            <circle class="is-accent" cx="185" cy="135" r="6" style="--d:1.4s"/>
+            <circle cx="250" cy="140" r="4" style="--d:1.8s"/>
+            <circle cx="95" cy="185" r="4" style="--d:1.2s"/>
+            <circle class="is-accent" cx="160" cy="190" r="5" style="--d:1.6s"/>
+            <circle cx="225" cy="195" r="4" style="--d:2s"/>
+            <circle cx="290" cy="170" r="4" style="--d:2.2s"/>
+            <circle cx="30" cy="190" r="4" style="--d:2.4s"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <h1 class="hero__title" id="hero-title">
+            <span class="line"><span class="line__inner">Upskill Your Teams</span></span>
+            <span class="line"><span class="line__inner">for the <em>AI Era</em></span></span>
+          </h1>
+
+          <p class="hero__sub reveal-up">Hands-on, instructor-led training in Generative AI, Data, Cloud and DevOps, built for enterprise teams and delivered by industry practitioners.</p>
+
+          <div class="hero__ctas">
+            <a class="btn btn--primary btn--lg reveal-cta" href="#contact" data-focus-form>Book a Free Consultation</a>
+            <a class="btn btn--ghost btn--lg reveal-cta" href="#programs">Explore Programs</a>
+          </div>
+
+          <p class="hero__trust reveal-up">Trusted by teams at leading enterprises across India, the US and the Middle East.</p>
+        </div>
+      </div>
+
+      <span class="hero__scroll" aria-hidden="true"><span></span></span>
+    </section>
+
+    <section class="programs section" id="programs" aria-labelledby="programs-title">
+      <svg class="programs__ring parallax" data-speed="-25" viewBox="0 0 400 400" aria-hidden="true" focusable="false">
+        <circle cx="200" cy="200" r="190" />
+        <circle cx="200" cy="200" r="130" />
+        <circle cx="200" cy="200" r="70" />
+      </svg>
+
+      <div class="container">
+        <header class="section__head">
+          <h2 class="section__title" id="programs-title">Training That Fits Your Tech Stack</h2>
+          <p class="section__sub">Customized for your team's skill level, tools and business goals.</p>
+        </header>
+
+        <ul class="cards" role="list">
+          <li class="cards__item">
+            <article class="card">
+              <svg class="card__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6l3.6 10.4L38 20l-10.4 3.6L24 34l-3.6-10.4L10 20l10.4-3.6Z"/><path d="M37 32l1.5 4.5L43 38l-4.5 1.5L37 44l-1.5-4.5L31 38l4.5-1.5Z"/></svg>
+              <h3 class="card__title">Generative AI for Teams</h3>
+              <p class="card__text">Prompt engineering, LLM apps, RAG and responsible AI use at work.</p>
+              <p class="card__meta"><span class="tag">3 to 5 days</span><span class="tag">Beginner to Advanced</span></p>
+            </article>
+          </li>
+          <li class="cards__item">
+            <article class="card">
+              <svg class="card__icon" viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="24" cy="11" rx="14" ry="5"/><path d="M10 11v26c0 2.8 6.3 5 14 5s14-2.2 14-5V11"/><path d="M10 24c0 2.8 6.3 5 14 5s14-2.2 14-5"/></svg>
+              <h3 class="card__title">Data Engineering and Analytics</h3>
+              <p class="card__text">Build modern data pipelines with Spark, Kafka and cloud data platforms.</p>
+              <p class="card__meta"><span class="tag">5 days</span><span class="tag">Intermediate</span></p>
+            </article>
+          </li>
+          <li class="cards__item">
+            <article class="card">
+              <svg class="card__icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="10" cy="14" r="4"/><circle cx="10" cy="34" r="4"/><circle cx="24" cy="24" r="4"/><circle cx="38" cy="14" r="4"/><circle cx="38" cy="34" r="4"/><path d="M14 15.5l6 6M14 32.5l6-6M28 21.5l6-6M28 26.5l6 6"/></svg>
+              <h3 class="card__title">Machine Learning and MLOps</h3>
+              <p class="card__text">Take models from notebook to production, with monitoring and automation.</p>
+              <p class="card__meta"><span class="tag">5 days</span><span class="tag">Advanced</span></p>
+            </article>
+          </li>
+          <li class="cards__item">
+            <article class="card">
+              <svg class="card__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M14 36h21a8 8 0 0 0 .8-16 11 11 0 0 0-21.3 2.4A7 7 0 0 0 14 36Z"/><path d="M20 30l4-4 4 4M24 26v12"/></svg>
+              <h3 class="card__title">Cloud and DevOps</h3>
+              <p class="card__text">Kubernetes, CI/CD and cloud-native skills across AWS, Azure and GCP.</p>
+              <p class="card__meta"><span class="tag">4 days</span><span class="tag">Intermediate</span></p>
+            </article>
+          </li>
+        </ul>
+
+        <ul class="stats" role="list">
+          <li class="stat">
+            <span class="stat__num"><span class="counter" data-count="10000">10,000</span>+</span>
+            <span class="stat__label">professionals trained</span>
+          </li>
+          <li class="stat">
+            <span class="stat__num"><span class="counter" data-count="200">200</span>+</span>
+            <span class="stat__label">enterprise clients</span>
+          </li>
+          <li class="stat">
+            <span class="stat__num"><span class="counter" data-count="50">50</span>+</span>
+            <span class="stat__label">expert instructors</span>
+          </li>
+          <li class="stat">
+            <span class="stat__num"><span class="counter" data-count="4.8" data-decimals="1">4.8</span>/5</span>
+            <span class="stat__label">average rating</span>
+          </li>
+        </ul>
+
+        <figure class="testimonial">
+          <svg class="testimonial__mark parallax" data-speed="-40" viewBox="0 0 64 48" aria-hidden="true"><path d="M0 48V28C0 12 8 2 24 0v9C15 11 12 17 12 24h12v24Zm40 0V28C40 12 48 2 64 0v9c-9 2-12 8-12 15h12v24Z"/></svg>
+          <blockquote class="testimonial__quote">
+            <p>"The training was practical from day one. Our engineers shipped their first GenAI prototype within a week of finishing."</p>
+          </blockquote>
+          <figcaption class="testimonial__by">Head of Engineering, Fintech Client</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="how section" id="how-it-works" aria-labelledby="how-title">
+      <div class="container how__grid">
+        <header class="how__head">
+          <h2 class="section__title" id="how-title">From First Call to Skilled Team in 4 Steps</h2>
+        </header>
+
+        <div class="timeline">
+          <span class="timeline__track" aria-hidden="true"><span class="timeline__fill"><span class="timeline__head"></span></span></span>
+          <ol class="timeline__list" role="list">
+          <li class="step">
+            <span class="step__marker" aria-hidden="true">01</span>
+            <div class="step__body">
+              <h3 class="step__title">Discover</h3>
+              <p class="step__text">We understand your team, tools and goals.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__marker" aria-hidden="true">02</span>
+            <div class="step__body">
+              <h3 class="step__title">Customize</h3>
+              <p class="step__text">We design a curriculum and labs around your stack.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__marker" aria-hidden="true">03</span>
+            <div class="step__body">
+              <h3 class="step__title">Deliver</h3>
+              <p class="step__text">Live, hands-on sessions led by practitioners.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__marker" aria-hidden="true">04</span>
+            <div class="step__body">
+              <h3 class="step__title">Measure</h3>
+              <p class="step__text">Assessments and a progress report for your leadership.</p>
+            </div>
+          </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact section" id="contact" aria-labelledby="contact-title">
+      <div class="container contact__grid">
+        <div class="contact__intro">
+          <h2 class="section__title" id="contact-title">Let's Plan Your Team's Training</h2>
+          <p class="section__sub">Share a few details and our team will respond within 24 hours.</p>
+
+          <!-- text kept as given in the brief; link uses the address with the dot -->
+          <address class="contact__details">
+            <a href="mailto:hello@datacouch.com">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              hello@datacouchcom
+            </a>
+            <a href="tel:+910000000000">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2Z"/></svg>
+              +91&nbsp;00000&nbsp;00000
+            </a>
+          </address>
+        </div>
+
+        <div class="form-card">
+          <form class="form" id="contact-form" novalidate>
+            <div class="field">
+              <label for="f-name">Full Name <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="f-name-err" />
+              <p class="field__error" id="f-name-err" aria-live="polite"></p>
+            </div>
+
+            <div class="field">
+              <label for="f-email">Work Email <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="f-email-err" />
+              <p class="field__error" id="f-email-err" aria-live="polite"></p>
+            </div>
+
+            <div class="field">
+              <label for="f-company">Company <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-company" name="company" type="text" autocomplete="organization" required aria-describedby="f-company-err" />
+              <p class="field__error" id="f-company-err" aria-live="polite"></p>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="f-size">Team Size <span class="req" aria-hidden="true">*</span></label>
+                <select id="f-size" name="teamSize" required aria-describedby="f-size-err">
+                  <option value="" selected disabled>Select</option>
+                  <option>1-10</option>
+                  <option>11-50</option>
+                  <option>51-200</option>
+                  <option>200+</option>
+                </select>
+                <p class="field__error" id="f-size-err" aria-live="polite"></p>
+              </div>
+
+              <div class="field">
+                <label for="f-interest">Training Interest <span class="req" aria-hidden="true">*</span></label>
+                <select id="f-interest" name="interest" required aria-describedby="f-interest-err">
+                  <option value="" selected disabled>Select</option>
+                  <option>Generative AI</option>
+                  <option>Data</option>
+                  <option>ML</option>
+                  <option>Cloud/DevOps</option>
+                </select>
+                <p class="field__error" id="f-interest-err" aria-live="polite"></p>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="f-message">Message</label>
+              <textarea id="f-message" name="message" rows="4"></textarea>
+            </div>
+
+            <button class="btn btn--primary btn--lg btn--block" type="submit">
+              <span class="btn__label">Request a Call Back</span>
+              <span class="btn__spinner" aria-hidden="true"></span>
+            </button>
+          </form>
+
+          <div class="form-success" id="form-success" tabindex="-1" hidden>
+            <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21"/><path d="m15 24.5 6 6 12-13"/></svg>
+            <p class="form-success__title">Thank you! Your request is in.</p>
+            <p>Our team will respond within 24 hours.</p>
+            <button class="btn btn--ghost" type="button" id="form-reset">Send another request</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer__inner">
+      <p>© 2026 Datacouch. All rights reserved.</p>
+      <ul class="footer__links" role="list">
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.1/dist/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.3.28/dist/lenis.min.js"></script>
+
+  <!-- three.js is imported from js/hero-network.js, desktop only -->
+  <script defer src="js/utils.js"></script>
+  <script defer src="js/theme.js"></script>
+  <script defer src="js/nav.js"></script>
+  <script defer src="js/smooth-scroll.js"></script>
+  <script defer src="js/hero-intro.js"></script>
+  <script defer src="js/hero-network.js"></script>
+  <script defer src="js/programs.js"></script>
+  <script defer src="js/timeline.js"></script>
+  <script defer src="js/contact-form.js"></script>
+</body>
+</html>

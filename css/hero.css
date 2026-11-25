@@ -1,0 +1,154 @@
+/* Hero */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  align-items: center;
+  min-height: 100svh;
+  padding-block: calc(var(--header-h) + 3rem) 5rem;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  top: -10vmax;
+  right: -25vmax;
+  width: 70vmax;
+  height: 70vmax;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--signal) 16%, transparent), transparent);
+}
+
+.hero__visual { position: absolute; z-index: -1; inset: 0 0 0 38%; }
+.hero__canvas { position: absolute; inset: 0; }
+.hero__canvas canvas { display: block; width: 100% !important; height: 100% !important; }
+
+/* fade the network out before it reaches the text */
+.hero__visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, var(--bg) 0%, transparent 35%);
+}
+
+.hero__fallback { display: none; }
+
+.hero__inner { position: relative; }
+.hero__content { max-width: 740px; }
+
+.hero__title { margin-bottom: 1.6rem; font-size: clamp(2.6rem, 6.4vw, 5.4rem); line-height: 1.02; }
+.hero__title .line { display: block; overflow: hidden; padding-bottom: .08em; }
+.hero__title .line__inner { display: block; }
+.hero__title em { font-style: italic; font-weight: 500; color: var(--accent-text); }
+
+.hero__sub {
+  max-width: 54ch;
+  margin-bottom: 2.2rem;
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  color: var(--muted);
+}
+
+.hero__ctas { display: flex; flex-wrap: wrap; gap: .9rem; margin-bottom: 2.4rem; }
+
+.hero__trust {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  max-width: 52ch;
+  font-size: .92rem;
+  color: var(--muted);
+}
+.hero__trust::before { content: ""; flex: 0 0 36px; height: 1.5px; background: var(--signal); }
+
+.hero__scroll {
+  position: absolute;
+  bottom: 1.6rem;
+  left: 50%;
+  width: 24px;
+  height: 38px;
+  margin-left: -12px;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+}
+.hero__scroll span {
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  width: 3px;
+  height: 7px;
+  margin-left: -1.5px;
+  border-radius: 2px;
+  background: var(--signal);
+  animation: scroll-cue 1.8s var(--ease) infinite;
+}
+
+@keyframes scroll-cue {
+  0% { opacity: 0; transform: translateY(0); }
+  30% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(12px); }
+}
+
+/* hidden until the intro timeline runs (js/hero-intro.js) */
+@media (prefers-reduced-motion: no-preference) {
+  .js .hero__title .line__inner { transform: translateY(110%); }
+  .js .reveal-up,
+  .js .reveal-cta { opacity: 0; }
+}
+
+/* mobile replacement for the three.js scene */
+.hero__fallback .mn-lines line {
+  stroke: var(--fg);
+  stroke-opacity: .28;
+  stroke-width: 1.2;
+  stroke-dasharray: 3 5;
+  animation: line-flow 6s linear infinite;
+}
+.hero__fallback .mn-nodes circle {
+  fill: var(--fg);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: node-pulse 3.2s ease-in-out infinite;
+  animation-delay: var(--d, 0s);
+}
+.hero__fallback .mn-nodes .is-accent { fill: var(--signal); filter: drop-shadow(0 0 6px var(--signal)); }
+
+@keyframes line-flow { to { stroke-dashoffset: -64; } }
+@keyframes node-pulse {
+  0%, 100% { opacity: .55; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.35); }
+}
+
+@media (max-width: 1023px) {
+  .hero__visual { inset: 0; opacity: .55; }
+  .hero__visual::after { background: radial-gradient(ellipse at 30% 50%, var(--bg) 10%, transparent 75%); }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: auto;
+    padding-top: calc(var(--header-h) + 1.5rem);
+  }
+  .hero__visual {
+    position: relative;
+    inset: auto;
+    order: -1;
+    height: 220px;
+    margin-bottom: 1rem;
+    opacity: 1;
+  }
+  .hero__visual::after { display: none; }
+  .hero__canvas { display: none; }
+  .hero__fallback { display: block; width: 100%; height: 100%; }
+  .hero__ctas .btn { flex: 1 1 100%; }
+  .hero__scroll { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__scroll { display: none; }
+}
